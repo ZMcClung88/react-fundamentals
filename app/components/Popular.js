@@ -79,6 +79,7 @@ class Popular extends React.Component {
     api.fetchPopularRepos(lang)
       .then(function (repos) {
         this.setState(function () {
+          console.log(repos);
           return {
             repos: repos
           }
@@ -92,7 +93,7 @@ class Popular extends React.Component {
           selectedLanguage={this.state.selectedLanguage}
           onSelect={this.updateLanguage} />
         {!this.state.repos
-          ? <p>LOADING!</p>
+          ? <p>LOADING...</p>
           : <RepoGrid repos={this.state.repos} />}
       </div>
     )
